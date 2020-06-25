@@ -13,8 +13,16 @@
                 text-align: center; 
                 padding-top: 50px; 
             }
-            .division
+            .division1
             {
+                float:left;
+                text-align: center;
+                padding: 100px;
+                background-color:rgb(132, 188, 196);
+            }
+            .division2
+            {
+                float:right;
                 text-align: center;
                 padding: 100px;
                 background-color:rgb(132, 188, 196);
@@ -31,7 +39,6 @@
                 color: white;
                 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
                 font-size: large;
-
             }
             
         </style>
@@ -41,9 +48,15 @@
     <body style='background-color: rgb(132, 188, 196)'>
         <h1 class=heading >Morse Code Translator</h1>
 
-        <div class=division>
-            <button type="button" class=butt>ENGLISH TO MORSE</button>
-            <button type="button" class=butt>MORSE TO ENGLISH</button>
+        <div class=division1>
+            <form action="/eng_to_morse_butt">
+                <button type="submit" class=butt method="GET">ENGLISH TO MORSE</button>
+            </form>
+        </div>
+        <div class=division2>
+            <form action="/morse_to_eng_butt">
+                <button type="submit" class=butt method="GET">MORSE TO ENGLISH</button>
+            </form>
         </div>
     </body>
 </html>
