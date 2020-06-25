@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>
+            Morse code to English
+        </title>
+        <style>
+            .heading
+           {
+               color : rgb(8, 56, 56);
+               font-size: xx-large;
+               font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+               text-align: center; 
+               padding-top: 50px; 
+           }
+           .butt1
+           {
+               margin-left: 650px; 
+               margin-top: 100px;
+               padding: 10px;
+               text-align: center;
+               align: center;
+           }
+           .butt2
+           {
+               padding: 10 px;
+               text-align: center;
+               align:center;
+           }
+        </style>
+
+    </head>
+    <body style='background-color: rgb(132, 188, 196)'>
+
+        <h1 class= heading >Morse code to English</h1>
+
+        <form action="convert_morse_to_eng" method="POST">
+
+            <input class=butt1 autocomplete="off" name="morse_code" placeholder="Morse Code" type="text">
+            <button class=butt2 type="submit" class=butt>Convert</button>
+
+        </form>
+    </body>
+</html> 
