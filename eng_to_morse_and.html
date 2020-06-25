@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>
+            English to Morse code
+        </title>
+        <style>
+            .heading
+           {
+               color : rgb(8, 56, 56);
+               font-size: xx-large;
+               font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+               text-align: center; 
+               padding-top: 50px; 
+           }
+           .butt1
+           { 
+               margin-top: 100px;
+               padding: 10px;
+               text-align: center;
+               align-content: stretch;
+           }
+           .text
+           {
+               font-size: x-large;
+               font-family: Georgia, 'Times New Roman', Times, serif;
+               text-align:center;
+               padding: 100px;
+               color:rgb(13, 48, 48);
+           }
+        </style>
+    </head>
+    <body style='background-color: rgb(132, 188, 196)'>
+        <h1 class=heading >English to Morse code</h1>
+
+        <p class=text>
+            The conversion is {{ans}}
+        </p>
+        <form action="/eng_to_morse_butt">
+            <button class=butt1 type="submit" class=butt method="GET">Reset</button>
+        </form>
+    </body>
+</html> 
