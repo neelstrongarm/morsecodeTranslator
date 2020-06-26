@@ -20,21 +20,29 @@
                 margin-top: 100px;
                 padding: 10px;
                 text-align: center;
-                align: center;
             }
             .butt2
             {
-                padding: 10 px;
+                padding: 30 px;
                 text-align: center;
-                align:center;
             }
+            .butt3
+           {
+               margin-top: 100px;
+               padding: 10px;
+               text-align: center;
+               float: left;
+           }
         </style>
     </head>
-    <body style='background-color: rgb(132, 188, 196)'>
+    <body style='background-color: rgb(32, 204, 204)'>
         <h1 class=heading>English to Morse code</h1>
         <form action="convert_eng_to_morse" method="POST">
             <input class=butt1 autocomplete="off" name="given_input" placeholder="English" type="text">
             <button class=butt2 type="submit" class=butt>Convert</button>
         </form>
+        <form action="/">
+            <button class=butt3 type="submit" method="GET">Home</button>
+        </form>
     </body>
-</html> 
+</html>
