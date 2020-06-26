@@ -28,16 +28,24 @@
                padding: 100px;
                color:rgb(13, 48, 48);
            }
+           .butt2
+           {
+               margin-top: 100px;
+               padding: 10px;
+               text-align: center;
+               align-content:left;
+           }
         </style>
     </head>
     <body style='background-color: rgb(132, 188, 196)'>
 
         <h1 class=heading>Morse code to English</h1>
         <p class=text>
-            The conversion is {{ans}}
+            "{{inp}}" in English is {{ans}}
         </p>
         <form action="/morse_to_eng_butt">
             <button class=butt1 type="submit" class=butt method="GET">Reset</button>
+            <button class=butt2 type="submit" class=butt method="GET">Home</button>
         </form>
     </body>
 </html>
