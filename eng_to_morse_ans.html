@@ -19,6 +19,7 @@
                padding: 10px;
                text-align: center;
                align-content: stretch;
+               float: right;
            }
            .text
            {
@@ -33,19 +34,23 @@
                margin-top: 100px;
                padding: 10px;
                text-align: center;
-               align-content:left;
+               float: left;
            }
         </style>
     </head>
-    <body style='background-color: rgb(132, 188, 196)'>
+    <body style='background-color: rgb(32, 204, 204)'>
         <h1 class=heading >English to Morse code</h1>
 
         <p class=text>
             "{{inp}}" converted to Morse Code is {{ans}}
         </p>
-        <form action="/eng_to_morse_butt">
-            <button class=butt1 type="submit" class=butt method="GET">Reset</button>
-            <button class=butt2 type="submit" class=butt method="GET">Home</button>
-        </form>
+        <div>
+            <form action="/eng_to_morse_butt">
+                <button class=butt1 type="submit" method="GET">Reset</button>
+            </form>
+            <form action="/">
+                <button class=butt2 type="submit" method="GET">Home</button>
+            </form>
+        </div>
     </body>
 </html> 
