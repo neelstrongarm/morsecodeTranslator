@@ -1,71 +1,76 @@
-<!DOCTYPE html>
-<html lang='en'>
-    <head>
-        <title>
-            Morse Code Translator
-        </title>
-        <style>
-            .heading
-            {
-                color : rgb(179, 42, 83);
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
-                text-align: center; 
-                /* padding-top: 50px; */
-                font-size: 1in; 
-                
-            }
-            .division1
-            {
-                float:left;
-                text-align: center;
-                padding: 100px;
-                background-color: rgb(32, 204, 204);
-            }
-            .division2
-            {
-                float:right;
-                text-align: center;
-                padding: 100px;
-                background-color: rgb(32, 204, 204);
-            }
+from flask import Flask, render_template, request
 
-            .butt
-            {
-                padding-left:  100px;
-                padding-right: 100px;
-                padding-top: 20px;
-                padding-bottom: 20px;
-                border: solid black;
-                background-color: rgb(18, 80, 131); 
-                color: white;
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
-                font-size: large;
-            }
-            .para
-            {
-                text-align: center;
-                font:bolder;
-                color: rgb(33, 46, 45);
-                font-family: Georgia;
-            }
-        </style>
+app = Flask(__name__)
 
-    </head>
 
-    <body style='background-color: rgb(32, 204, 204)'>
-       <h1 class=heading >Morse Code Translator</h1>
-        <p class=para>
-            Morse code is a method used in telecommunication to encode <br>text characters as standardized sequences<br> of two different signal durations, <br>called dots and dashes or dits and dahs.
-        </p>
-        <div class=division1>
-            <form action="/eng_to_morse_butt">
-                <button type="submit" class=butt method="GET">ENGLISH TO MORSE</button>
-            </form>
-        </div>
-        <div class=division2>
-            <form action="/morse_to_eng_butt">
-                <button type="submit" class=butt method="GET">MORSE TO ENGLISH</button>
-            </form>
-        </div>
-    </body>
-</html>
+# Morse Code Translater
+
+# A dictionary which maps letters to morse code
+MORSE_CODE_DICT = { 'A':'.-', 'B':'-...', 
+                        'C':'-.-.', 'D':'-..', 'E':'.', 
+                        'F':'..-.', 'G':'--.', 'H':'....', 
+                        'I':'..', 'J':'.---', 'K':'-.-', 
+                        'L':'.-..', 'M':'--', 'N':'-.', 
+                        'O':'---', 'P':'.--.', 'Q':'--.-', 
+                        'R':'.-.', 'S':'...', 'T':'-', 
+                        'U':'..-', 'V':'...-', 'W':'.--', 
+                        'X':'-..-', 'Y':'-.--', 'Z':'--..', 
+                        '1':'.----', '2':'..---', '3':'...--', 
+                        '4':'....-', '5':'.....', '6':'-....', 
+                        '7':'--...', '8':'---..', '9':'----.', 
+                        '0':'-----', ', ':'--..--', '.':'.-.-.-', 
+                        '?':'..--..', '/':'-..-.', '-':'-....-', 
+                        '(':'-.--.', ')':'-.--.-', "'" : '.----.',
+                        '&':'.-...','@':'.--.-.',':':'---...',
+                        '!':'-.-.--','+':'.-.-.','=':'-...-', ',' : '--..--'} 
+
+
+@app.route('/', methods=["GET", "POST"])
+def index():
+    if request.method == 'GET':
+        return render_template("index.html")
+    
+@app.route('/eng_to_morse_butt')
+def eng_to_morse():
+        return render_template('eng_to_morse.html')
+
+
+@app.route('/morse_to_eng_butt')
+def morse_to_eng():
+    return render_template('morse_to_eng.html')
+
+@app.route('/convert_morse_to_eng', methods=["GET", "POST"])
+def morseToEnglish():
+    # Creating a new dictionary, which maps morse code to letters
+    if request.method == "POST":
+        s = request.form.get("morse_code")
+        if len(s) == 0:
+            return render_template("apology.html")
+        eng_dict = {} 
+        for i in MORSE_CODE_DICT:
+            eng_dict[MORSE_CODE_DICT[i]] = i.lower()
+        # Separating letter with spaces and words with forward slash
+        words = s.split('/') 
+        ans = []
+        for i in words:
+            letter = i.split()
+            for j in letter:
+                ans.append(eng_dict[j])
+            ans.append(' ')
+        fin = ''.join(ans)
+        return render_template("morse_to_eng_ans.html", ans = fin.title(), inp = s)
+    
+@app.route('/convert_eng_to_morse', methods=["GET", "POST"])
+def convert_eng_to_morse():
+    if request.method == "POST":
+        s = request.form.get("given_input")
+        ans = []
+        for i in s:
+            if i == " ":
+                ans.append('/')
+            elif i.upper() not in MORSE_CODE_DICT:
+                return -1
+            else:
+                ans.append(MORSE_CODE_DICT[i.upper()])
+        letters = ' '.join(ans)
+        return render_template("eng_to_morse_ans.html", ans = letters, inp = s)
