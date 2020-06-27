@@ -1,3 +1,4 @@
+<!-- Webpage that displays a form to the user where they have to give an input in Morse Code -->
 <!DOCTYPE html>
 <html lang='en'>
     <head>
@@ -7,42 +8,68 @@
         <style>
             .heading
            {
-               color : rgb(8, 56, 56);
-               font-size: xx-large;
-               font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
-               text-align: center; 
-               padding-top: 50px; 
+                color : rgb(179, 42, 83);
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+                text-align: center; 
+                font-size: 1in; 
            }
            .butt1
+            {
+                margin-left: 600px; 
+                margin-top: 100px;
+                padding-right: 50px;
+                padding-left: 50px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                text-align: center;
+                float: center;
+            }
+            .butt2
+            {
+                border: solid black;
+                background-color: rgb(18, 80, 131); 
+                color: white;
+                padding: 13px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            .butt3
            {
-               margin-left: 650px; 
-               margin-top: 100px;
-               padding: 10px;
-               text-align: center;
+                /* margin-top: 100px; */
+                padding: 10px;
+                padding-left: 20px;
+                padding-right: 20px;
+                float: left;
+                border: solid black;
+                background-color: rgb(18, 80, 131); 
+                color: white;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                top: 1px;
+                right: 1px;
+                text-align: center;
            }
-           .butt2
+           .para
            {
-               padding: 30 px;
-               text-align: center;
-           }
-           .butt3
-           {
-               margin-top: 100px;
-               padding: 10px;
-               text-align: center;
-               float: left;
+                text-align: center;
+                font-size: x-large;
+                color: rgb(116, 28, 76);
+                font-family: Georgia;
            }
         </style>
 
     </head>
     <body style='background-color: rgb(32, 204, 204)'>
-        <h1 class= heading >Morse code to English</h1>
-        <form action="convert_morse_to_eng" method="POST">
-            <input class=butt1 autocomplete="off" name="morse_code" placeholder="Morse Code" type="text">
-            <button class=butt2 type="submit" class=butt>Convert</button>
-        </form>
+
         <form action="/">
             <button class=butt3 type="submit" method="GET">Home</button>
         </form>
+
+        <h1 class= heading >Morse code to English</h1>
+
+        <p class=para>Enter morse code here: must consist of dots and dashes,<br>enter space between letters, '/' between words</p>
+
+        <form action="convert_morse_to_eng" method="POST">
+            <input class=butt1 autocomplete="off" name="morse_code" placeholder="Morse Code" type="text">
+            <button class=butt2 type="submit" class=butt>Convert</button>
+        </form>        
     </body>
 </html>
