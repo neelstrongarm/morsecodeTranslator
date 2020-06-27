@@ -1,3 +1,4 @@
+<!-- Webpage that displays the converted morse code for the user's input -->
 <!DOCTYPE html>
 <html lang='en'>
     <head>
@@ -5,52 +6,69 @@
             English to Morse code
         </title>
         <style>
-            .heading
+           .heading
            {
-               color : rgb(8, 56, 56);
-               font-size: xx-large;
-               font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
-               text-align: center; 
-               padding-top: 50px; 
+                color : rgb(179, 42, 83);
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+                text-align: center; 
+                font-size: 1in; 
            }
+           /* Class for the reset button */
            .butt1
            { 
-               margin-top: 100px;
-               padding: 10px;
-               text-align: center;
-               align-content: stretch;
-               float: right;
+                margin-top: 100px;
+                align-content: stretch;
+                float: right;
+                border: solid black;
+                background-color: rgb(18, 80, 131); 
+                color: white;
+                padding: 10px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
            }
            .text
            {
-               font-size: x-large;
-               font-family: Georgia, 'Times New Roman', Times, serif;
-               text-align:center;
-               padding: 100px;
-               color:rgb(13, 48, 48);
+                text-align: center;
+                font-size: x-large;
+                color: rgb(116, 28, 76);
+                font-family: Georgia;
            }
+           /* Class for the Home Button */
            .butt2
            {
-               margin-top: 100px;
-               padding: 10px;
-               text-align: center;
-               float: left;
+                /* margin-top: 100px; */
+                padding: 10px;
+                padding-left: 20px;
+                padding-right: 20px;
+                float: left;
+                border: solid black;
+                background-color: rgb(18, 80, 131); 
+                color: white;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                top: 1px;
+                right: 1px;
+                text-align: center;
            }
         </style>
     </head>
     <body style='background-color: rgb(32, 204, 204)'>
+
+        <form action="/">
+            <button class=butt2 type="submit" method="GET">Home</button>
+        </form>
+
         <h1 class=heading >English to Morse code</h1>
 
         <p class=text>
-            "{{inp}}" converted to Morse Code is {{ans}}
+            "{{inp}}" <br> converted to Morse Code is <br>{{ans}}
         </p>
+
         <div>
+
             <form action="/eng_to_morse_butt">
                 <button class=butt1 type="submit" method="GET">Reset</button>
             </form>
-            <form action="/">
-                <button class=butt2 type="submit" method="GET">Home</button>
-            </form>
+
         </div>
+
     </body>
-</html> 
+</html>  
